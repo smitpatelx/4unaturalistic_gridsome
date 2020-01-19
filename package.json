@@ -1,0 +1,20 @@
+{
+  "name": "4u-gridsome",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/source-wordpress": "^0.5.2",
+    "gridsome": "^0.7.0",
+    "gridsome-source-wordpress": "^0.4.13",
+    "vue2-transitions": "^0.3.0"
+  },
+  "devDependencies": {
+    "gridsome-plugin-tailwindcss": "^2.2.32",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.2"
+  }
+}
