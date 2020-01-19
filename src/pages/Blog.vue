@@ -8,8 +8,8 @@
                 </a>
                 <div class="py-4 px-6">
                   <h1 class="font-semibold text-xl text-gray-800" v-html="node.title"></h1>
-                  <p class="font-normal text-base text-gray-600 py-2" v-html="$options.filters.excerptF(node.excerpt, 15)">
-                  </p>
+                  <div class="font-normal text-base text-gray-600 py-2" v-html="$options.filters.excerptF(node.excerpt, 15)">
+                  </div>
                   <div class="pt-3 w-full flex flex-wrap justify-between items-center">
                     <p class="font-normal text-base leading-tight text-gray-600">Author: <span class="capitalize text-gray-800">{{node.author.name}}</span></p>
                     <g-link class="text-xl focus:outline-none text-teal-600 focus:text-teal-500 hover:text-teal-500 border-b border-transparent hover:border-teal-400" :to="node.path">Read More</g-link>

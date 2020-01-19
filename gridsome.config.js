@@ -46,5 +46,8 @@ module.exports = {
         component: './src/templates/SinglePost.vue'
       }
     ],
+  },
+  chainWebpack(config){
+    config.mode('development')
   }
 }
