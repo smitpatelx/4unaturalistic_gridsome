@@ -15,18 +15,20 @@
           It’s always a pleasure assisting families and individuals in quest to take control of their life.
         </p>
         
-        <a href="https://squareup.com/appointments/buyer/widget/r8rbsgtcveknor/0HW43593W5BJV" target="_blank"
-          style="transition: all 0.5s;"
-          class="focus:outline-none focus:shadow-outline text-lg lg:text-xl px-6 py-2 text-white bg-teal-600 hover:bg-teal-500 rounded shadow-lg hover:shadow-xl my-6 flex justify-center items-center">
-          Book an Appoinment
-          <svg class="w-5 h-5 inline-block fill-current ml-3" viewBox="0 0 20 22"><path d="M3 4a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1H3zM0 5a3 3 0 013-3h14a3 3 0 013 3v14a3 3 0 01-3 3H3a3 3 0 01-3-3V5z"/><path d="M14 0a1 1 0 011 1v4a1 1 0 11-2 0V1a1 1 0 011-1zM6 0a1 1 0 011 1v4a1 1 0 01-2 0V1a1 1 0 011-1zM0 9a1 1 0 011-1h18a1 1 0 110 2H1a1 1 0 01-1-1z"/></svg>
-        </a>
-        <g-link to="/contact" 
-          style="transition: all 0.5s;"
-          class="focus:outline-none focus:shadow-outline text-lg lg:text-xl px-6 py-2 ml-3 text-teal-500 bg-white hover:bg-teal-200 hover:text-teal-700 rounded shadow-lg hover:shadow-xl my-6 flex justify-center items-center">
-          Contact
-          <svg class="w-5 h-5 inline-block fill-current ml-3" viewBox="0 0 23 23"><path d="M22 0h-6c-.6 0-1 .4-1 1s.4 1 1 1h4.2l-5.5 5.5c-.3.3-.3.9 0 1.3.2.1.5.2.7.2.2 0 .5-.1.6-.3l5-5V7c0 .6.4 1 1 1s1-.4 1-1V1c0-.6-.4-1-1-1z"/><path d="M19 22.9h-.3c-3.2-.4-6.4-1.5-9.1-3.2-2.5-1.6-4.7-3.8-6.3-6.3C1.5 10.7.4 7.5.1 4.3c0-.8.2-1.6.7-2.2.5-.6 1.2-1 2-1.1h3.3c1.5 0 2.8 1.1 3 2.6.1.9.3 1.8.6 2.6.4 1.1.1 2.3-.7 3.2l-.7.7c1.2 1.8 2.7 3.4 4.6 4.6l.7-.7c.8-.8 2.1-1.1 3.2-.7.8.3 1.7.5 2.6.6 1.5.2 2.6 1.5 2.6 3v3c0 .8-.3 1.6-.9 2.1-.6.5-1.3.9-2.1.9zM6.1 3h-3c-.3 0-.6.2-.8.4-.1.2-.2.4-.2.7C2.4 7 3.4 9.8 5 12.3c1.5 2.3 3.4 4.3 5.7 5.7 2.5 1.6 5.3 2.6 8.2 2.9.4 0 .6-.1.8-.3.2-.2.3-.4.3-.7v-3c0-.5-.4-.9-.9-1-1-.1-2-.4-3-.8-.4-.1-.8-.1-1.1.2l-1.3 1.3c-.3.3-.8.4-1.2.2-2.7-1.5-4.9-3.7-6.4-6.4-.1-.4 0-.9.3-1.2l1.3-1.3c.2-.2.3-.7.2-1-.4-1-.6-2-.8-3 0-.5-.5-.9-1-.9z"/></svg>
-        </g-link>
+        <div class="flex w-full flex-wrap mt-6">
+          <a href="https://squareup.com/appointments/buyer/widget/r8rbsgtcveknor/0HW43593W5BJV" target="_blank"
+            style="transition: all 0.5s;"
+            class="focus:outline-none focus:shadow-outline text-lg lg:text-xl px-6 py-2 m-2 text-white bg-teal-600 hover:bg-teal-500 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
+            Book an Appoinment
+            <svg class="w-5 h-5 inline-block fill-current ml-3" viewBox="0 0 20 22"><path d="M3 4a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1H3zM0 5a3 3 0 013-3h14a3 3 0 013 3v14a3 3 0 01-3 3H3a3 3 0 01-3-3V5z"/><path d="M14 0a1 1 0 011 1v4a1 1 0 11-2 0V1a1 1 0 011-1zM6 0a1 1 0 011 1v4a1 1 0 01-2 0V1a1 1 0 011-1zM0 9a1 1 0 011-1h18a1 1 0 110 2H1a1 1 0 01-1-1z"/></svg>
+          </a>
+          <g-link to="/contact" 
+            style="transition: all 0.5s;"
+            class="focus:outline-none focus:shadow-outline text-lg lg:text-xl px-6 py-2 m-2 text-teal-500 bg-white hover:bg-teal-200 hover:text-teal-700 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
+            Contact
+            <svg class="w-5 h-5 inline-block fill-current ml-3" viewBox="0 0 23 23"><path d="M22 0h-6c-.6 0-1 .4-1 1s.4 1 1 1h4.2l-5.5 5.5c-.3.3-.3.9 0 1.3.2.1.5.2.7.2.2 0 .5-.1.6-.3l5-5V7c0 .6.4 1 1 1s1-.4 1-1V1c0-.6-.4-1-1-1z"/><path d="M19 22.9h-.3c-3.2-.4-6.4-1.5-9.1-3.2-2.5-1.6-4.7-3.8-6.3-6.3C1.5 10.7.4 7.5.1 4.3c0-.8.2-1.6.7-2.2.5-.6 1.2-1 2-1.1h3.3c1.5 0 2.8 1.1 3 2.6.1.9.3 1.8.6 2.6.4 1.1.1 2.3-.7 3.2l-.7.7c1.2 1.8 2.7 3.4 4.6 4.6l.7-.7c.8-.8 2.1-1.1 3.2-.7.8.3 1.7.5 2.6.6 1.5.2 2.6 1.5 2.6 3v3c0 .8-.3 1.6-.9 2.1-.6.5-1.3.9-2.1.9zM6.1 3h-3c-.3 0-.6.2-.8.4-.1.2-.2.4-.2.7C2.4 7 3.4 9.8 5 12.3c1.5 2.3 3.4 4.3 5.7 5.7 2.5 1.6 5.3 2.6 8.2 2.9.4 0 .6-.1.8-.3.2-.2.3-.4.3-.7v-3c0-.5-.4-.9-.9-1-1-.1-2-.4-3-.8-.4-.1-.8-.1-1.1.2l-1.3 1.3c-.3.3-.8.4-1.2.2-2.7-1.5-4.9-3.7-6.4-6.4-.1-.4 0-.9.3-1.2l1.3-1.3c.2-.2.3-.7.2-1-.4-1-.6-2-.8-3 0-.5-.5-.9-1-.9z"/></svg>
+          </g-link>
+        </div>
       </div>
       <!-- Vector Image Doctor -->
       <div class="w-full md:w-1/2 flex flex-wrap justify-center items-center content-center px-6 pb-16 md:pb-0">

@@ -10,6 +10,7 @@
     "@gridsome/source-wordpress": "^0.5.2",
     "gridsome": "^0.7.0",
     "gridsome-source-wordpress": "^0.4.13",
+    "vue-click-outside": "^1.0.7",
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
