@@ -55,21 +55,26 @@ query Home($page: Int) {
 
 <script>
 export default {
-    metaInfo(){
-        return{
-            title: "Blog"
-        }
-    },
-    filters:{
-      excerptF(sentence,words=10){
-        var result = sentence;
-        var resultArray = result.split(" ");
-        if(resultArray.length > words){
-        resultArray = resultArray.slice(0, words);
-        result = resultArray.join(" ") + " …";
-        }
-        return result;
+  metaInfo(){
+      return{
+          title: "Blog"
       }
+  },
+  filters:{
+    excerptF(sentence,words=10){
+      var result = sentence;
+      var resultArray = result.split(" ");
+      if(resultArray.length > words){
+      resultArray = resultArray.slice(0, words);
+      result = resultArray.join(" ") + " …";
+      }
+      return result;
     }
+  },
+  mounted(){
+    // this.$page.allWordPressPost.edges.forEach(({node}) => {
+    //   console.log(node.featuredMedia.sourceUrl);
+    // });
+  }
 }
 </script>
