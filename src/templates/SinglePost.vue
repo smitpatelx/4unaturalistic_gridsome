@@ -156,13 +156,21 @@ export default {
         ul{
             @apply px-6 my-4 text-teal-700 text-lg;
 
-            li::before {
-                content: "\2022";
-                @apply text-teal-600;
-                font-weight: bold;
-                display: inline-block; 
-                width: 1em;
-                margin-left: -1em;
+            li{
+                @apply flex flex-wrap justify-start items-center;
+
+                *{
+                    @apply m-0 p-0 inline-block;
+                }
+
+                &::before {
+                    content: "\2022";
+                    @apply text-teal-600;
+                    font-weight: bold;
+                    display: inline-block; 
+                    width: 1em;
+                    margin-left: -1em;
+                }
             }
         }
 
@@ -170,7 +178,11 @@ export default {
             @apply px-6 my-4 text-teal-700 text-lg;
 
             li {
-                @apply list-decimal text-teal-600;
+                @apply list-decimal text-teal-600 flex flex-wrap justify-start items-center;
+
+                *{
+                    @apply m-0 p-0;
+                }
             }
         }
 
@@ -213,6 +225,7 @@ export default {
                 @apply mx-6;
             }
         }
+
     }
     
     .color-1{
