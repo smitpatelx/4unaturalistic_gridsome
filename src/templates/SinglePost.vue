@@ -35,7 +35,7 @@
                     <span class="font-semibold"> - {{avgReadTime}} min read</span>
                 </div>
                 <g-image class="rounded-lg my-6 shadow-lg object-cover w-full" style="max-height: 18rem;" quality="30" :src="$page.wordPressPost.featuredMedia.sourceUrl" :alt="$page.wordPressPost.featuredMedia.altText"/>
-                <div class="wp-content py-10" v-html="$page.wordPressPost.content"></div>
+                <div class="wp-content py-10 w-full" v-html="$page.wordPressPost.content"></div>
                 
                 <div class="w-full flex flex-wrap justify-between items-center border-t border-gray-400 mb-12">
                     <div class="w-full md:w-auto flex flex-wrap flex-row justify-start content-center items-center my-6">
@@ -137,7 +137,8 @@ export default {
 
 <style lang="scss">
     .wp-content{
-        @apply flex flex-wrap w-full flex-col justify-center text-left text-gray-800;
+        @apply block w-full flex-col justify-center text-left text-gray-800;
+        max-width: 100vw;
 
         a{
             @apply mx-2 text-teal-500 font-semibold;
