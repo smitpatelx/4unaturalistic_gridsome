@@ -141,7 +141,7 @@ export default {
         max-width: 100vw;
 
         a{
-            @apply mx-2 text-teal-500 font-semibold;
+            @apply text-teal-500 font-semibold;
         }
 
         a:hover{
@@ -149,7 +149,8 @@ export default {
         }
 
         p{
-            @apply mt-8 text-lg leading-relaxed;
+            @apply mt-4 mb-8 text-lg leading-relaxed;
+            overflow-wrap: break-word;
         }
 
         ul{
@@ -201,8 +202,16 @@ export default {
             @apply rounded-lg shadow-lg my-2 mx-auto max-h-full bg-cover;
         }
 
-        figure{
-            @apply w-full max-h-full object-cover;
+        blockquote{
+            @apply px-6 bg-teal-100 border-l-4 border-teal-500 py-4 my-4 mx-1;
+
+            p{
+                @apply m-0;
+            }
+
+            @media (min-width: 768px) {
+                @apply mx-6;
+            }
         }
     }
     
