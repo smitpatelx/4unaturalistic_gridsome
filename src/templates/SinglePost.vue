@@ -154,10 +154,10 @@ export default {
         }
 
         ul{
-            @apply px-6 my-4 text-teal-700 text-lg;
+            @apply px-6 my-4 text-teal-700 text-lg relative;
 
             li{
-                @apply flex flex-wrap justify-start items-center;
+                @apply flex flex-wrap justify-start items-start relative;
 
                 *{
                     @apply m-0 p-0 inline-block;
@@ -167,9 +167,9 @@ export default {
                     content: "\2022";
                     @apply text-teal-600;
                     font-weight: bold;
-                    display: inline-block; 
                     width: 1em;
                     margin-left: -1em;
+                    @apply inline-block absolute;
                 }
             }
         }
@@ -178,10 +178,10 @@ export default {
             @apply px-6 my-4 text-teal-700 text-lg;
 
             li {
-                @apply list-decimal text-teal-600 flex flex-wrap justify-start items-center;
+                @apply list-decimal text-teal-600 flex flex-wrap justify-start items-start relative;
 
                 *{
-                    @apply m-0 p-0;
+                    @apply m-0 p-0 inline-block;
                 }
             }
         }
@@ -210,8 +210,16 @@ export default {
             @apply text-teal-500 my-4;
         }
 
+        figure{
+            @apply max-w-full my-2;
+
+            figcaption{
+                @apply text-gray-600 text-sm font-semibold px-2 py-1 bg-teal-100 inline-block mt-2;
+            }
+        }
+
         img{
-            @apply rounded-lg shadow-lg my-2 mx-auto max-h-full bg-cover;
+            @apply rounded-lg mx-auto bg-cover;
         }
 
         blockquote{
