@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-white w-full flex flex-wrap justify-center content-center border-b border-gray-300">
+    <header class="bg-white w-full flex flex-wrap justify-center items-center content-center border-b border-gray-300 mt-2 md:mt-0">
       <div style="background: linear-gradient(90deg, rgba(56,161,105,1) 0%, rgba(79,209,197,1) 100%);" class="pb-1 w-full absolute top-0"></div>
       <div class="z-50 md:px-6 lg:container w-full flex lg:flex-wrap flex-wrap-reverse justify-center content-center items-center">
         <!-- <div class="text-lg font-medium flex flex-wrap justify-center content-center items-center inline-block"> -->
@@ -30,16 +30,18 @@
           </div>
         <!-- </div> -->
         <nav class="text-xl font-medium flex flex-wrap justify-center content-center items-center">
-          <g-link to="/" class="mr-6 lg:m-0 lg:hidden inline-block text-gray-800 no-underline cursor-pointer flex flex-wrap justify-center content-center items-center">
-            <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-16 w-16 inline-block"/>
+          <g-link to="/" class="mr-4 lg:m-0 lg:hidden inline-block text-gray-800 no-underline cursor-pointer inline-block justify-center content-center items-center">
+            <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-12 w-12 inline-block"/>
           </g-link>
-          <label class="mr-6 relative content-center items-center flex block leading-none">
-              <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;"
-              class="py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500"/>
-              <button title="Go Ahead" type="button" class="absolute top-0 right-0 h-full mr-4 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500">
-                  <svg class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0z"/><path d="M15.943 15.943a1 1 0 011.414 0l4.35 4.35a1 1 0 01-1.414 1.414l-4.35-4.35a1 1 0 010-1.414z" /></svg>
-              </button>
-          </label>
+          <div class="flex-1 block">
+            <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full">
+                <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;"
+                class="self-stretch py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500"/>
+                <button title="Go Ahead" type="button" class="absolute top-0 right-0 h-full mr-6 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500">
+                    <svg class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0z"/><path d="M15.943 15.943a1 1 0 011.414 0l4.35 4.35a1 1 0 01-1.414 1.414l-4.35-4.35a1 1 0 010-1.414z" /></svg>
+                </button>
+            </label>
+          </div>
           <button :title="darkmode ? 'Night Light' : 'Day Light'" @click="darkmode=!darkmode" type="button" target="_blank" class="cursor-pointer h-full mr-0 md:mr-6 xl:mr-12 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500 flex justify-center items-center">
             <zoom-center-transition :duration="500">
               <svg v-if="darkmode" class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M12.1 22h-.9c-5.5-.5-9.5-5.4-9-10.9.4-4.8 4.2-8.6 9-9 .4 0 .8.2 1 .5.2.3.2.8-.1 1.1-1 1.3-1.3 2.9-1.1 4.5.2 1.6 1.1 3 2.4 3.9 2.1 1.6 5 1.6 7.1 0 .3-.2.7-.3 1.1-.1.3.2.5.6.5 1-.2 2.7-1.5 5.1-3.6 6.8-1.9 1.4-4.1 2.2-6.4 2.2zM9.3 4.4c-2.9 1-4.9 3.6-5.2 6.8-.4 4.4 2.8 8.3 7.2 8.7 2.1.2 4.2-.4 5.8-1.8 1.1-.9 1.9-2.1 2.4-3.4-2.5.9-5.3.5-7.5-1.1-1.7-1.3-2.8-3.1-3.2-5.2-.1-1.4.1-2.7.5-4z"/></svg>
