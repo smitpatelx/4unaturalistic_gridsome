@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-white w-full flex flex-wrap justify-center items-center content-center border-b border-gray-300 mt-2 md:mt-0">
+    <header class="bg-white w-full flex flex-wrap justify-center items-center content-center border-b border-gray-300 mt-2 lg:mt-0">
       <div style="background: linear-gradient(90deg, rgba(56,161,105,1) 0%, rgba(79,209,197,1) 100%);" class="pb-1 w-full absolute top-0"></div>
       <div class="z-50 md:px-6 lg:container w-full flex lg:flex-wrap flex-wrap-reverse justify-center content-center items-center">
         <!-- <div class="text-lg font-medium flex flex-wrap justify-center content-center items-center inline-block"> -->
@@ -34,10 +34,10 @@
             <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-12 w-12 inline-block"/>
           </g-link>
           <div class="flex-1 block">
-            <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full">
-                <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;"
-                class="self-stretch py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500"/>
-                <button title="Go Ahead" type="button" class="absolute top-0 right-0 h-full mr-6 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500">
+            <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full pr-4">
+                <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;flex-shrink: 1;flex-basis: auto;"
+                class="self-stretch py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500 w-full"/>
+                <button title="Go Ahead" type="button" class="absolute top-0 right-0 h-full mr-8 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500">
                     <svg class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0z"/><path d="M15.943 15.943a1 1 0 011.414 0l4.35 4.35a1 1 0 01-1.414 1.414l-4.35-4.35a1 1 0 010-1.414z" /></svg>
                 </button>
             </label>
