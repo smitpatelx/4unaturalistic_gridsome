@@ -2,7 +2,7 @@
     <Layout>
         <!-- :style="`background: url(${$page.wordPressPost.featuredMedia.sourceUrl});`" -->
         <div class="relative">
-            <div class="px-6 md:px-16 lg:px-24 flex flex-wrap fonts-primary mx-auto container bg-white">
+            <div class="px-6 md:px-16 lg:px-24 flex flex-wrap fonts-primary mx-auto container bg-white w-full">
             
                 <!-- Social Share Buttons : Start-->
                 <div class="z-50 fixed bottom-0 left-0 mb-2 ml-2 px-1 py-1 bg-white rounded-full bg-teal-600 flex flex-wrap flex-row justify-center items-center">
