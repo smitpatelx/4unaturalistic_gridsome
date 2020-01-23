@@ -37,9 +37,9 @@
                 
                 <div class="w-full flex flex-wrap justify-between items-center border-t border-gray-400 mb-12">
                     <div class="w-full md:w-auto flex flex-wrap flex-row justify-start content-center items-center my-6">
-                        <g-link :href="data.path" class="font-normal rounded-full border border-teal-500 py-1 px-3 text-base text-teal-500 hover:text-teal-600 cursor-pointer m-2" v-for="(data) in $page.wordPressPost.categories" :key="data.id">
+                        <a :href='`/tag/${data.slug}`' class="font-normal rounded-full border border-teal-500 py-1 px-3 text-base text-teal-500 hover:text-teal-600 cursor-pointer m-2" v-for="(data) in $page.wordPressPost.categories" :key="data.id">
                             {{data.title}}
-                        </g-link>
+                        </a>
                     </div>
                     <p class="text-xl font-normal text-gray-600 px-2">{{$page.wordPressPost.dateGmt|formatDate}}</p>
                 </div>
@@ -57,7 +57,7 @@ query Post ($path: String!) {
         categories{
             id,
             title,
-            path
+            slug
         },
         dateGmt,
         path,

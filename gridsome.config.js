@@ -22,7 +22,7 @@ module.exports = {
         downloadACFImages: false, // default false
         routes: {
           post: '/blog/:slug',
-          post_tag: '/tag/:slug'
+          post_tag: '/tag/:slug',
         },
       }
     },
@@ -47,6 +47,12 @@ module.exports = {
         component: './src/templates/SinglePost.vue'
       }
     ],
+    WordPressCategory: [
+      {
+        path:'/tag/:slug',
+        component: './src/templates/WordPressCategory.vue'
+      }
+    ]
   },
   chainWebpack(config){
     config.mode('development')

@@ -1,6 +1,12 @@
 <template>
     <Layout>
         <div class="py-6 flex flex-wrap mx-auto container">
+          <div class="flex flex-wrap w-full justify-center items-center">
+            <span class="text-xl md:text-4xl font-normal text-teal-600 w-full text-center">
+              <span class="text-gray-600 pr-3">#</span>
+              {{$page.category.title}}
+            </span>
+          </div>
           <!-- Filters @start -->
           <div class="w-full flex flex-wrap-reverse md:flex-wrap justify-between items-center py-6">
             <div class="flex flex-wrap flex-row items-center justify-start my-2 leading-tight">
@@ -51,28 +57,33 @@
 </template>
 
 <page-query>
-query Blog($page: Int) {
-    allWordPressPost(page: $page, perPage: 9) @paginate {
-    pageInfo {
-      totalPages,
-      currentPage,
-    },
-    edges {
-      node {
-        date,
-        id,
-        title,
-        path,
-        excerpt,
-        categories{
-          id,
-        },
-        author {
-          name,
-        },
-        featuredMedia{
-          sourceUrl,
-          altText
+query Category($path: String, $page: Int) {
+    category: wordPressCategory(path: $path) {
+    title
+    belongsTo(page: $page, perPage: 9) @paginate {
+      pageInfo {
+        totalPages
+        currentPage
+      }
+      edges {
+        node {
+          ... on WordPressPost {
+            date,
+            id,
+            title,
+            path,
+            excerpt,
+            categories{
+              id,
+            },
+            author {
+              name,
+            },
+            featuredMedia{
+              sourceUrl,
+              altText
+            }
+          }
         }
       }
     }
@@ -84,90 +95,89 @@ query Blog($page: Int) {
         id
         title
         count
-        path,
         slug
       }
     }
-  }
+  },
 }
 </page-query>
 
 <script>
 export default {
-  metaInfo(){
-    return{
-      title: "Blog",
-    }
-  },
-  data(){
-    return{
-      loadedPosts: [],
-      currentPage: 1,
-      sortByDate: false,
-      categorySelected: '',
-    }
-  },
-  filters:{
-    excerptF(sentence,words=10){
-      var result = sentence;
-      var resultArray = result.split(" ");
-      if(resultArray.length > words){
-      resultArray = resultArray.slice(0, words);
-      result = resultArray.join(" ") + " …";
-      }
-      return result;
-    }
-  },
-  created() {
-    this.loadedPosts.push(...this.$page.allWordPressPost.edges)
-    this.sort_list();
-	},
-  methods:{
-    async infiniteHandler($state) {
-			if (this.currentPage + 1 > this.$page.allWordPressPost.pageInfo.totalPages) {
-				$state.complete()
-			} else {
-				const { data } = await this.$fetch(
-					`/blog/${this.currentPage + 1}`
-				)
-				if (data.allWordPressPost.edges.length) {
-					this.currentPage = data.allWordPressPost.pageInfo.currentPage
-          this.loadedPosts.push(...data.allWordPressPost.edges)
-          this.sort_list();
-					$state.loaded()
-				} else {
-					$state.complete()
+    data(){
+        return{
+            loadedPosts:[],
+            currentPage: 1,
+            sortByDate: false,
         }
-			}
     },
-    async sortByDateF(){
-      this.sortByDate=!this.sortByDate
+    metaInfo(){
+        return{
+            title: this.$page.category.title,
+        }
+    },
+    filters:{
+        excerptF(sentence,words=10){
+            var result = sentence;
+            var resultArray = result.split(" ");
+            if(resultArray.length > words){
+                resultArray = resultArray.slice(0, words);
+                result = resultArray.join(" ") + " …";
+            }
+            return result;
+        }
+    },
+    methods:{
+        async sort_list(){
+            this.loadedPosts.sort((a,b)=>{
+                if(this.sortByDate){
+                    return Number(new Date(a.node.date)) - Number(new Date(b.node.date));
+                } else {
+                    return Number(new Date(b.node.date)) - Number(new Date(a.node.date));
+                }
+            });
+        },
+        async sortByDateF(){
+            this.sortByDate=!this.sortByDate
+            this.sort_list();
+        },
+        async infiniteHandler($state) {
+          if (this.currentPage + 1 > this.$page.category.belongsTo.pageInfo.totalPages) {
+            $state.complete()
+          } else {
+            const { data } = await this.$fetch(
+              `/tag/${this.$route.params.slug}/${this.currentPage + 1}`
+            )
+            if (data.category.belongsTo.edges.length) {
+              this.currentPage = data.category.belongsTo.pageInfo.currentPage
+              this.loadedPosts.push(...data.category.belongsTo.edges)
+              this.sort_list();
+              $state.loaded()
+            } else {
+              $state.complete()
+            }
+          }
+        },
+    },
+    mounted(){
+      this.loadedPosts.push(...this.$page.category.belongsTo.edges)
       this.sort_list();
     },
-    async sort_list(){
-      this.loadedPosts.sort((a,b)=>{
-        if(this.sortByDate){
-            return Number(new Date(a.node.date)) - Number(new Date(b.node.date));
-        } else {
-            return Number(new Date(b.node.date)) - Number(new Date(a.node.date));
+    watch:{
+      categorySelected(val){
+        window.location.href =`/tag/${val}`
+      }
+    },
+    computed:{
+      categorySelected: {
+        get: function () {
+          return this.$route.params.slug;
+        },
+        set: function (val) {
+          window.location.href =`/tag/${val}`
+          console.log(val)
         }
-      });
+      }
     }
-  },
-  watch:{
-    categorySelected(val){
-      this.$router.push(`/tag/${val}`);
-    }
-  }
 }
 </script>
-<style lang="scss" scoped>
-  .rotate-0{
-    transform: rotateX(0deg);
-    transition: transform 0.4s;
-  }
-  .rotate-180{
-    transform: rotateX(180deg);
-    transition: transform 0.4s;
-  }
-</style>
