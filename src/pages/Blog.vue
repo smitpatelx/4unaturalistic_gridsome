@@ -3,8 +3,8 @@
         <div class="py-6 flex flex-wrap mx-auto container">
           <!-- Filters @start -->
           <div class="w-full flex flex-wrap-reverse md:flex-wrap justify-between items-center py-6">
-            <div class="flex flex-wrap flex-row items-center justify-start my-2">
-              <select v-model="categorySelected" class="focus:outline-none focus:shadow-outline text-lg lg:text-xl px-4 py-2 mx-2 text-white bg-teal-500 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
+            <div class="flex flex-wrap flex-row items-center justify-start my-2 leading-tight">
+              <select v-model="categorySelected" class="focus:outline-none focus:shadow-outline text-lg px-4 py-2 mx-2 text-white bg-teal-500 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
                 <option value="" default>Select Category</option>
                 <option v-for="({node}) in $page.allWordPressCategory.edges" :key="node.id" :value="node.id">{{node.title}}  ({{node.count}})</option>
               </select>
