@@ -48,7 +48,7 @@
                 You've scrolled through all the posts
               </p>
               <p slot="no-results" class="w-full text-teal-600 font-light text-center text-xl">
-                Sorry, no posts yet
+                No more posts
               </p>
             </infinite-loading>
 			    </ClientOnly>
