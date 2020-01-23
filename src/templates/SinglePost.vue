@@ -140,6 +140,7 @@ export default {
 
         a{
             @apply text-teal-500 font-semibold;
+            margin:0 0.4rem !important;
         }
 
         a:hover{
