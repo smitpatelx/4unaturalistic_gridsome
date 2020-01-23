@@ -19,7 +19,7 @@
           </div>
           <!-- Filters @end -->
           <div class="flex flex-wrap w-full">
-            <div class="w-full md:w-1/2 xl:w-1/3 p-4" v-for="{node} in loadedPosts" :key="node.id">
+            <div class="w-full md:w-1/2 xl:w-1/3 p-4" v-for="{node} in filteredPosts" :key="node.id">
                 <div class="shadow-none hover:shadow-lg rounded-lg bg-white flex flex-wrap border border-gray-200 hover:border-transparent" style="transition: box-shadow 0.7s;">
                   <a :href="node.path" class="w-full flex flex-wrap" tabindex="-1">
                     <g-image quality="25" :src="node.featuredMedia.sourceUrl" :alt="node.featuredMedia.altText" class="rounded-t-lg object-cover h-40 w-full"/>
@@ -36,7 +36,9 @@
                 </div>
             </div>
           </div>
-
+          <div v-if="filteredPosts.length<9 && loadedPosts.length>=9" class="w-full flex flex-wrap justify-center content-center items-center py-8 text-center">
+            <button @click="load_more()" class="focus:outline-none focus:shadow-outline text-lg lg:text-xl px-4 py-1 mx-2 text-white bg-teal-500 hover:bg-teal-600 rounded shadow-lg hover:shadow-xl flex justify-center items-center">Load More</button>
+          </div>
           <ClientOnly class="w-full flex flex-wrap">
             <infinite-loading @infinite="infiniteHandler" spinner="spiral" class="w-full flex flex-wrap justify-center content-center items-center py-8 text-center">
               <p slot="no-more" class="w-full text-teal-600 font-light text-center text-xl">
@@ -104,7 +106,8 @@ export default {
       loadedPosts: [],
       currentPage: 1,
       sortByDate: false,
-      categorySelected: ''
+      categorySelected: '',
+      filteredPosts:[]
     }
   },
   filters:{
@@ -130,22 +133,37 @@ export default {
 				const { data } = await this.$fetch(
 					`/blog/${this.currentPage + 1}`
 				)
+				// if (data.allWordPressPost.edges.length) {
 				if (data.allWordPressPost.edges.length) {
 					this.currentPage = data.allWordPressPost.pageInfo.currentPage
           this.loadedPosts.push(...data.allWordPressPost.edges)
+          this.filteredPosts = this.loadedPosts;
+          this.filter_category(this.categorySelected)
           this.sort_list();
 					$state.loaded()
 				} else {
 					$state.complete()
-				}
+        }
 			}
+    },
+    async load_more(){
+      const { data } = await this.$fetch(
+        `/blog/${this.currentPage + 1}`
+      )
+      if (data.allWordPressPost.edges.length) {
+        this.currentPage = data.allWordPressPost.pageInfo.currentPage
+        this.loadedPosts.push(...data.allWordPressPost.edges)
+        this.filteredPosts = this.loadedPosts;
+        this.filter_category(this.categorySelected)
+        this.sort_list();
+      }
     },
     async sortByDateF(){
       this.sortByDate=!this.sortByDate
       this.sort_list();
     },
     async sort_list(){
-      this.loadedPosts.sort((a,b)=>{
+      this.filteredPosts.sort((a,b)=>{
         if(this.sortByDate){
             return Number(new Date(a.node.date)) - Number(new Date(b.node.date));
         } else {
@@ -155,23 +173,17 @@ export default {
     },
     async filter_category(val){
       let newArray = this.loadedPosts.filter(({node})=>{
-        // if(typeof node == "object"){
-          node.categories.forEach(element => {
-            if (Number(element.id) === Number(val)) {
-              return true
-            } else {
-              return false
-            }
+          if(val.length===0) return true
+          let if_present = node.categories.filter(element=>{
+            return Number(element.id) === Number(val)
           });
-        // } else {
-        //   if (Number(node.categories.id) === Number(val)) 
-        //     return true
-        //   else
-        //     return false
-        // }
+          if(if_present.length === 0){
+            return false
+          } else {
+            return (if_present[0].id===val)
+          }
       });
-      // let newArray = this.loadedPosts.filter(({node})=> Number(node.categories.id) == Number(val));
-      console.log(newArray);
+      this.filteredPosts = newArray;
     }
   },
   watch:{

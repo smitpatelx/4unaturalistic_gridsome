@@ -26,9 +26,7 @@
                 <div class="w-full flex flex-wrap justify-center items-center font-normal text-base text-gray-700">
                     <span class="mr-2">
                         Posted <span class="font-semibold">{{$page.wordPressPost.dateGmt|formatDate}}</span> by</span>
-                    <div class="bg-white shadow-md p-2 rounded-full h-12 w-12 ml-1 mr-3">
-                        <g-image :src="$page.wordPressPost.author.avatarUrls._96" alt="author-avatar" />
-                    </div>
+                    <g-image :src="$page.wordPressPost.author.avatarUrls._96" alt="author-avatar" class="bg-white shadow-md rounded-full h-12 w-12 ml-1 mr-3"/>
                     <g-link class="mr-2 text-teal-600 hover:text-gray-800 hover:underline" 
                         style="transition: all 0.5s;"
                         :href="`/author/${$page.wordPressPost.author.slug}`">{{$page.wordPressPost.author.name}}</g-link>
