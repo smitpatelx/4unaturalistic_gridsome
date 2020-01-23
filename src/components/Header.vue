@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-white w-full flex flex-wrap justify-center items-center content-center border-b border-gray-300 mt-2 lg:mt-0">
+    <header class="bg-white w-full flex flex-wrap justify-center items-center content-center border-b border-gray-300 mt-4 lg:mt-0 px-4 lg:px-0">
       <div style="background: linear-gradient(90deg, rgba(56,161,105,1) 0%, rgba(79,209,197,1) 100%);" class="pb-1 w-full absolute top-0"></div>
       <div class="z-50 md:px-6 lg:container w-full flex lg:flex-wrap flex-wrap-reverse justify-center content-center items-center">
         <!-- <div class="text-lg font-medium flex flex-wrap justify-center content-center items-center inline-block"> -->
@@ -9,8 +9,6 @@
           </g-link>
           <div id="nav" class="flex flex-wrap mr-0 xl:mr-32 md:ml-4 text-lg font-normal">
             <g-link title="home" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/" exact>Home</g-link>
-            <g-link title="about" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/about/" exact>About</g-link>
-            <g-link title="blog" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/blog/">Blog</g-link>
             <div class="flex flex-wrap flex-col" v-click-outside="closeServices" @blur="closeServices">
               <button @click="services=!services" type="button" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600">
                 Services
@@ -27,6 +25,8 @@
                 </slide-y-down-transition>
               </div>
             </div>
+            <g-link title="about" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/about/" exact>About</g-link>
+            <g-link title="blog" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/blog/">Blog</g-link>
           </div>
         <!-- </div> -->
         <nav class="text-xl font-medium flex flex-wrap justify-center content-center items-center">
