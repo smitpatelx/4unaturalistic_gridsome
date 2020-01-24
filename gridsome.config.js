@@ -1,8 +1,36 @@
 // This is where project configuration and plugin options are located. 
 // Learn more: https://gridsome.org/docs/config
 
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
+const collections = [
+  {
+    query: `{
+      allWordPressPost {
+        edges {
+          node {
+            date
+            id
+            title
+            path
+            excerpt
+            content
+            slug
+          }
+        }
+      }
+    }`,
+    transformer: ({ data }) => data.allWordPressPost.edges.map(({ node }) => node),
+    indexName: process.env.ALGOLIA_INDEX_NAME, // Algolia index name
+    itemFormatter: (item) => {
+      return {
+        objectID: item.id,
+        title: item.title,
+        slug: item.slug,
+        modified: String(item.date)
+      }
+    }, // optional
+    matchFields: ['slug', 'title'], // Array<String> required with PartialUpdates
+  },
+];
 
 module.exports = {
   siteName: '4unaturalistic',
@@ -38,7 +66,17 @@ module.exports = {
         shouldTimeTravel: true
       }
       */
-    }
+    },
+    {
+      use: `gridsome-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        collections,
+        chunkSize: 10000, // default: 1000
+        enablePartialUpdates: true, // default: false
+      },
+    },
   ],
   templates: {
     WordPressPost: [
