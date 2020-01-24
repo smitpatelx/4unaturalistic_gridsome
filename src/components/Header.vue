@@ -34,13 +34,14 @@
             <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-12 w-12 inline-block"/>
           </g-link>
           <div class="flex-1 block">
-            <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full pr-4">
+            <!-- <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full pr-4">
                 <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;flex-shrink: 1;flex-basis: auto;"
                 class="self-stretch py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500 w-full"/>
                 <button title="Go Ahead" type="button" class="absolute top-0 right-0 h-full mr-8 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500">
                     <svg class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0z"/><path d="M15.943 15.943a1 1 0 011.414 0l4.35 4.35a1 1 0 01-1.414 1.414l-4.35-4.35a1 1 0 010-1.414z" /></svg>
                 </button>
-            </label>
+            </label> -->
+            <AlgoliaSearch></AlgoliaSearch>
           </div>
           <button :title="darkmode ? 'Night Light' : 'Day Light'" @click="darkmode=!darkmode" type="button" target="_blank" class="cursor-pointer h-full mr-0 md:mr-6 xl:mr-12 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500 flex justify-center items-center">
             <zoom-center-transition :duration="500">
@@ -77,10 +78,12 @@ query {
 <script>
 import { ZoomCenterTransition, SlideYDownTransition } from 'vue2-transitions'
 import ClickOutside from 'vue-click-outside'
+import AlgoliaSearch from './AlgoliaSearch'
 export default {
     components: {
         ZoomCenterTransition,
-        SlideYDownTransition
+        SlideYDownTransition,
+        AlgoliaSearch
     },
     data(){
       return{
@@ -96,15 +99,7 @@ export default {
         this.services = false;
         // console.log(this.$refs.search.focus())
       },
-      focusSearch(e){
-        if(e.which===191) {
-          e.preventDefault();
-          this.$refs.search.focus()
-        }
-      }
-    },
-    mounted(){
-      window.addEventListener('keyup', this.focusSearch)
+      
     }
 }
 </script>

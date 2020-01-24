@@ -25,10 +25,11 @@ const collections = [
         objectID: item.id,
         title: item.title,
         slug: item.slug,
+        excerpt: item.excerpt,
         modified: String(item.date)
       }
     }, // optional
-    matchFields: ['slug', 'title'], // Array<String> required with PartialUpdates
+    matchFields: ['content', 'title'], // Array<String> required with PartialUpdates
   },
 ];
 
