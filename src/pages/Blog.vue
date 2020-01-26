@@ -22,7 +22,7 @@
             <div class="w-full md:w-1/2 xl:w-1/3 p-4" v-for="{node} in loadedPosts" :key="node.id">
                 <div class="shadow-none hover:shadow-lg rounded-lg bg-white flex flex-wrap border border-gray-200 hover:border-transparent" style="transition: box-shadow 0.7s;">
                   <a :href="node.path" class="w-full flex flex-wrap" tabindex="-1">
-                    <g-image quality="25" :src="$options.filters.imageUrl(node.featuredMedia.sourceUrl)" :alt="node.featuredMedia.altText" class="rounded-t-lg object-cover h-40 w-full"/>
+                    <g-image quality="25" :src="node.featuredMedia.mediaDetails.sizes.medium.sourceUrl" :alt="node.featuredMedia.altText" class="rounded-t-lg object-cover h-40 w-full"/>
                   </a>
                   <div class="py-4 px-6">
                     <h1 class="font-semibold text-xl text-gray-800" v-html="node.title"></h1>
@@ -71,8 +71,14 @@ query Blog($page: Int) {
           name,
         },
         featuredMedia{
-          sourceUrl,
           altText
+          mediaDetails{
+            sizes{
+              medium{
+                sourceUrl
+              }
+            }
+          }
         }
       }
     }
