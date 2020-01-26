@@ -46,7 +46,7 @@
             </div>
         </div>
         <client-only>
-            <div class="flex flex-wrap justify-center items-center w-full container mx-auto pb-16">
+            <div class="flex flex-wrap justify-center items-center w-full container mx-auto pb-16 px-8 md:px-0">
                 <vue-disqus class="w-full" :title="$page.wordPressPost.title"  shortname="https-4unaturalistic-netlify-com" :identifier="$page.wordPressPost.id"></vue-disqus>
             </div>
         </client-only>
