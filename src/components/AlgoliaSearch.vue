@@ -4,11 +4,10 @@
             index-name="posts"
             :search-client="searchClient"
             class="flex flex-wrap flex-col justify-center items-center w-full block"
-            @blur="closeSearchDialog"
+            @blur.native="closeSearchDialog"
             v-click-outside="closeSearchDialog"
           >
             <ais-configure :hitsPerPage="4" />
-            <!-- <ais-search-box show-loading-indicator placeholder="Search ..." @focus="searchFocused=true" /> -->
             <ais-search-box>
                 <div slot-scope="{ currentRefinement, isSearchStalled, refine }">
                     <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full pr-4">
@@ -25,9 +24,9 @@
                     <ais-hits>
                         <div slot-scope="{ items }" class="absolute flex flex-wrap flex-col w-full md:w-96 top-0 right-0 bg-white rounded-lg shadow-lg py-3 px-5 mt-20 md:mt-4 border-2 border-gray-300">
                             <div v-for="item in items" :key="item.objectID">
-                                <g-link :to="`/blog/${item.slug}/`" @click.native="closeSearchDialog" class="py-2 px-4 bg-white hover:bg-gray-200 rounded-lg flex flex-wrap flex-col my-3">
-                                        <h1 class="font-semibold text-lg text-gray-800"><ais-highlight :hit="item" attribute="title" /></h1>
-                                    <p class="font-normal text-base text-gray-600" v-html="$options.filters.excerptF($sanitize(item.excerpt))"></p>
+                                <g-link  :to="`/blog/${item.slug}/`" @click.native="closeSearchDialog" class="py-2 bg-white hover:bg-teal-100 rounded-lg flex flex-wrap flex-col my-3 focus:outline-none border-2 border-transparent focus:border-teal-400">
+                                    <h1 class="font-semibold text-lg text-gray-800 px-4 "><ais-highlight :hit="item" attribute="title" /></h1>
+                                    <p class="font-normal text-base text-gray-600 px-4 " v-html="$options.filters.excerptF($sanitize(item.excerpt))"></p>
                                 </g-link>
                             </div>
                             <div class="w-full justify-end text-right flex flex-wrap">

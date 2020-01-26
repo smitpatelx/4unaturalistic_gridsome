@@ -34,16 +34,9 @@
             <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-12 w-12 inline-block"/>
           </g-link>
           <div class="flex-1 block" style="min-width:10rem;">
-            <!-- <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full pr-4">
-                <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;flex-shrink: 1;flex-basis: auto;"
-                class="self-stretch py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500 w-full"/>
-                <button title="Go Ahead" type="button" class="absolute top-0 right-0 h-full mr-8 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500">
-                    <svg class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zm-9 7a9 9 0 1118 0 9 9 0 01-18 0z"/><path d="M15.943 15.943a1 1 0 011.414 0l4.35 4.35a1 1 0 01-1.414 1.414l-4.35-4.35a1 1 0 010-1.414z" /></svg>
-                </button>
-            </label> -->
             <AlgoliaSearch></AlgoliaSearch>
           </div>
-          <button :title="darkmode ? 'Night Light' : 'Day Light'" @click="darkmode=!darkmode" type="button" target="_blank" class="cursor-pointer h-full mr-0 md:mr-6 xl:mr-12 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500 flex justify-center items-center">
+          <button @focus="" :title="darkmode ? 'Night Light' : 'Day Light'" @click="darkmode=!darkmode" type="button" target="_blank" class="cursor-pointer h-full mr-0 md:mr-6 xl:mr-12 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500 flex justify-center items-center">
             <zoom-center-transition :duration="500">
               <svg v-if="darkmode" class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M12.1 22h-.9c-5.5-.5-9.5-5.4-9-10.9.4-4.8 4.2-8.6 9-9 .4 0 .8.2 1 .5.2.3.2.8-.1 1.1-1 1.3-1.3 2.9-1.1 4.5.2 1.6 1.1 3 2.4 3.9 2.1 1.6 5 1.6 7.1 0 .3-.2.7-.3 1.1-.1.3.2.5.6.5 1-.2 2.7-1.5 5.1-3.6 6.8-1.9 1.4-4.1 2.2-6.4 2.2zM9.3 4.4c-2.9 1-4.9 3.6-5.2 6.8-.4 4.4 2.8 8.3 7.2 8.7 2.1.2 4.2-.4 5.8-1.8 1.1-.9 1.9-2.1 2.4-3.4-2.5.9-5.3.5-7.5-1.1-1.7-1.3-2.8-3.1-3.2-5.2-.1-1.4.1-2.7.5-4z"/></svg>
               <svg v-if="!darkmode" class="w-5 h-5 inline-block fill-current" viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm-6 4a6 6 0 1112 0 6 6 0 01-12 0zM12 0a1 1 0 011 1v2a1 1 0 11-2 0V1a1 1 0 011-1zM12 20a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM3.513 3.513a1 1 0 011.414 0l1.42 1.42a1 1 0 01-1.414 1.414l-1.42-1.42a1 1 0 010-1.414zM17.653 17.653a1 1 0 011.414 0l1.42 1.42a1 1 0 01-1.414 1.414l-1.42-1.42a1 1 0 010-1.414zM0 12a1 1 0 011-1h2a1 1 0 110 2H1a1 1 0 01-1-1zM20 12a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM6.347 17.653a1 1 0 010 1.414l-1.42 1.42a1 1 0 01-1.414-1.414l1.42-1.42a1 1 0 011.414 0zM20.487 3.513a1 1 0 010 1.414l-1.42 1.42a1 1 0 11-1.414-1.414l1.42-1.42a1 1 0 011.414 0z"/></svg>
