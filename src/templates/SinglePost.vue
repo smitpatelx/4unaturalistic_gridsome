@@ -47,7 +47,7 @@
         </div>
         <client-only>
             <div class="flex flex-wrap justify-center items-center w-full container mx-auto">
-                <vue-disqus class="w-full" :title="$page.wordPressPost.title"  shortname="dayana_deschamps" :identifier="$page.wordPressPost.id" url="http://example.com/path"></vue-disqus>
+                <vue-disqus class="w-full" :title="$page.wordPressPost.title"  shortname="4unaturalistic" :identifier="$page.wordPressPost.id"></vue-disqus>
             </div>
         </client-only>
     </Layout>
