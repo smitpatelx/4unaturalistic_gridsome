@@ -102,7 +102,12 @@ query Category($path: String, $page: Int) {
 </page-query>
 
 <script>
+import InfiniteLoading from 'vue-infinite-loading';
+
 export default {
+    components:{
+      InfiniteLoading
+    },
     data(){
         return{
             loadedPosts:[],

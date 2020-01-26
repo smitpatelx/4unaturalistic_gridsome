@@ -45,9 +45,10 @@ module.exports = {
         typeName: 'WordPress',
         perPage: 100,
         concurrent: 10,
-        splitPostsIntoFragments: true, // default false
+        splitPostsIntoFragments: false, // default false
         downloadRemoteImagesFromPosts: false, // default false
-        downloadRemoteFeaturedImages: false, // default false
+        downloadRemoteFeaturedImages: true, // default false
+        featuredImagesLocalPath: './static/wp-images/',
         downloadACFImages: false, // default false
         routes: {
           post: '/blog/:slug',
@@ -94,6 +95,6 @@ module.exports = {
     ]
   },
   chainWebpack(config){
-    config.mode('development')
+    // config.mode('development')
   }
 }

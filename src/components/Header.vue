@@ -33,7 +33,7 @@
           <g-link to="/" class="mr-4 lg:m-0 lg:hidden inline-block text-gray-800 no-underline cursor-pointer inline-block justify-center content-center items-center">
             <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-12 w-12 inline-block"/>
           </g-link>
-          <div class="flex-1 block">
+          <div class="flex-1 block" style="min-width:10rem;">
             <!-- <label class="mr-6 relative justify-center items-center content-center leading-none flex w-full pr-4">
                 <input ref="search" title="Search" type="text" placeholder="Search" style="transition: border-color 0.5s;flex-shrink: 1;flex-basis: auto;"
                 class="self-stretch py-2 text-base bg-transparent focus:outline-none bg-gray-200 focus:bg-white text-gray-700 rounded pl-5 pr-10 focus:border border-transparent focus:border-teal-500 w-full"/>

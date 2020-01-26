@@ -5,6 +5,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 import InfiniteLoading from 'vue-infinite-loading'
 import VueSanitize from "vue-sanitize";
 import InstantSearch from 'vue-instantsearch';
+import VueDisqus from 'vue-disqus'
 // import VueInstantSearch, { createInstantSearch } from 'vue-instantsearch'
 // import algoliasearch from 'algoliasearch/lite';
 import '~/assets/tailwind.css';
@@ -54,6 +55,6 @@ import '~/../static/fonts/stylesheet.css';
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
-  Vue.use(InfiniteLoading, InstantSearch);
+  Vue.use([InfiniteLoading, InstantSearch, VueDisqus]);
   Vue.use(VueSanitize);
 }

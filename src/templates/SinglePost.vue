@@ -45,12 +45,18 @@
                 </div>
             </div>
         </div>
+        <client-only>
+            <div class="flex flex-wrap justify-center items-center w-full container mx-auto">
+                <vue-disqus class="w-full" :title="$page.wordPressPost.title"  shortname="dayana_deschamps" :identifier="$page.wordPressPost.id" url="http://example.com/path"></vue-disqus>
+            </div>
+        </client-only>
     </Layout>
 </template>
 
 <page-query>
 query Post ($path: String!) {
     wordPressPost (path: $path) {
+        id
         title,
         content,
         excerpt,
@@ -82,6 +88,8 @@ query Post ($path: String!) {
 
 <script>
 import moment from 'moment'
+import VueDisqus from 'vue-disqus/dist/vue-disqus.vue';
+
 export default {
     data(){
         return{
@@ -96,8 +104,8 @@ export default {
             this.avgReadTime = Math.round(words/170);
         }
     },
-    computed:{
-        
+    components:{
+        VueDisqus
     },
     metaInfo(){
         return{
@@ -137,6 +145,10 @@ export default {
     .wp-content{
         @apply block w-full flex-col justify-center text-left text-gray-800;
         max-width: 100vw;
+
+        iframe{
+            @apply w-full block h-full;
+        }
 
         a{
             @apply text-teal-500 font-semibold;

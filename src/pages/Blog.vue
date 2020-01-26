@@ -22,7 +22,7 @@
             <div class="w-full md:w-1/2 xl:w-1/3 p-4" v-for="{node} in loadedPosts" :key="node.id">
                 <div class="shadow-none hover:shadow-lg rounded-lg bg-white flex flex-wrap border border-gray-200 hover:border-transparent" style="transition: box-shadow 0.7s;">
                   <a :href="node.path" class="w-full flex flex-wrap" tabindex="-1">
-                    <g-image quality="25" :src="node.featuredMedia.sourceUrl" :alt="node.featuredMedia.altText" class="rounded-t-lg object-cover h-40 w-full"/>
+                    <g-image quality="25" :src="$options.filters.imageUrl(node.featuredMedia.sourceUrl)" :alt="node.featuredMedia.altText" class="rounded-t-lg object-cover h-40 w-full"/>
                   </a>
                   <div class="py-4 px-6">
                     <h1 class="font-semibold text-xl text-gray-800" v-html="node.title"></h1>
@@ -93,6 +93,8 @@ query Blog($page: Int) {
 </page-query>
 
 <script>
+import InfiniteLoading from 'vue-infinite-loading';
+
 export default {
   metaInfo(){
     return{
@@ -116,6 +118,11 @@ export default {
       result = resultArray.join(" ") + " …";
       }
       return result;
+    },
+    imageUrl(url){
+      let img_name = url.split('/')
+      img_name = img_name[img_name.length-1]
+      return '/wp-images/'+img_name.toString().replace(/\_+/g, '-')
     }
   },
   created() {
@@ -152,12 +159,15 @@ export default {
             return Number(new Date(b.node.date)) - Number(new Date(a.node.date));
         }
       });
-    }
+    },
   },
   watch:{
     categorySelected(val){
       this.$router.push(`/tag/${val}`);
     }
+  },
+  components:{
+    InfiniteLoading
   }
 }
 </script>
