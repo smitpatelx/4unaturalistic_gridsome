@@ -32,7 +32,7 @@
                         :href="`/author/${$page.wordPressPost.author.slug}`">{{$page.wordPressPost.author.name}}</g-link>
                     <span class="font-semibold"> - {{avgReadTime}} min read</span>
                 </div>
-                <g-image class="rounded-lg my-6 shadow-lg object-cover w-full" style="max-height: 18rem;" quality="30" :src="$page.wordPressPost.featuredMedia.sourceUrl" :alt="$page.wordPressPost.featuredMedia.altText"/>
+                <g-image class="rounded-lg my-6 shadow-lg object-cover w-full" style="max-height: 18rem;" quality="30" :src="$page.wordPressPost.featuredMedia.mediaDetails.sizes.mediumLarge.sourceUrl" :alt="$page.wordPressPost.featuredMedia.altText"/>
                 <div class="wp-content py-10 w-full" v-html="$page.wordPressPost.content"></div>
                 
                 <div class="w-full flex flex-wrap justify-between items-center border-t border-gray-400 mb-12">
@@ -68,13 +68,16 @@ query Post ($path: String!) {
         dateGmt,
         path,
         modifiedGmt,
-        featuredMedia {
-            sourceUrl,
-            altText,
-            mediaDetails {
-                width
+        featuredMedia{
+          altText
+          mediaDetails{
+            sizes{
+              mediumLarge{
+                sourceUrl
+              }
             }
-        },
+          }
+        }
         author{
           avatarUrls{
             _96
