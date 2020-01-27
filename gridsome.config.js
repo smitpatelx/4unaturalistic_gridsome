@@ -47,8 +47,7 @@ module.exports = {
         concurrent: 10,
         splitPostsIntoFragments: false, // default false
         downloadRemoteImagesFromPosts: false, // default false
-        downloadRemoteFeaturedImages: true, // default false
-        featuredImagesLocalPath: './static/wp-images/',
+        downloadRemoteFeaturedImages: false, // default false
         downloadACFImages: false, // default false
         routes: {
           post: '/blog/:slug',
