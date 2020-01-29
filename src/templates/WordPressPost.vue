@@ -162,7 +162,7 @@ export default {
         }
 
         a:hover{
-            @apply text-teal-600 border-b border-teal-500;
+            @apply text-teal-600 underline;
         }
 
         p{
@@ -171,7 +171,7 @@ export default {
         }
 
         ul{
-            @apply px-6 my-4 text-teal-700 text-lg relative;
+            @apply px-6 my-4 text-gray-700 text-lg relative;
 
             li{
                 @apply flex flex-wrap justify-start items-start relative;
@@ -192,10 +192,10 @@ export default {
         }
 
         ol{
-            @apply px-6 my-4 text-teal-700 text-lg;
+            @apply px-6 my-4 text-gray-700 text-lg;
 
             li {
-                @apply list-decimal text-teal-600 flex flex-wrap justify-start items-start relative;
+                @apply list-decimal text-gray-600 flex flex-wrap justify-start items-start relative;
 
                 *{
                     @apply m-0 p-0 inline-block;
