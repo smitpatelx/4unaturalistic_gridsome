@@ -49,10 +49,10 @@ module.exports = {
         downloadRemoteImagesFromPosts: false, // default false
         downloadRemoteFeaturedImages: false, // default false
         downloadACFImages: false, // default false
-        routes: {
-          post: '/blog/:slug',
-          post_tag: '/tag/:slug',
-        },
+        // routes: {
+        //   post: '/blog/:slug',
+        //   post_tag: '/tag/:slug',
+        // },
       }
     },
     {
@@ -83,7 +83,7 @@ module.exports = {
     WordPressPost: [
       {
         path:'/blog/:slug',
-        component: './src/templates/SinglePost.vue'
+        component: './src/templates/WordPressPost.vue'
       }
     ],
     WordPressCategory: [
