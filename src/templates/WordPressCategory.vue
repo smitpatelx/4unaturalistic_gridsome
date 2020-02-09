@@ -191,3 +191,13 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+  .rotate-0{
+    transform: rotateX(0deg);
+    transition: transform 0.4s;
+  }
+  .rotate-180{
+    transform: rotateX(180deg);
+    transition: transform 0.4s;
+  }
+</style>
