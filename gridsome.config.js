@@ -40,7 +40,7 @@ module.exports = {
       use: 'gridsome-source-wordpress',
       options: {
         // baseUrl: 'http://wp01.test/index.php', // required
-        baseUrl: 'https://4unaturalistic.com/index.php',
+        baseUrl: 'https://app.4unaturalistic.com/index.php',
         apiBase: 'wp-json',
         typeName: 'WordPress',
         perPage: 100,
