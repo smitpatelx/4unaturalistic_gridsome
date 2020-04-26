@@ -10,7 +10,7 @@
           <!-- Filters @start -->
           <div class="w-full flex flex-wrap-reverse md:flex-wrap justify-between items-center py-6">
             <div class="flex flex-wrap flex-row items-center justify-start my-2 leading-tight">
-              <select v-model="categorySelected" class="focus:outline-none focus:shadow-outline text-lg px-4 py-2 mx-2 text-white bg-teal-500 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
+              <select v-model="categorySelected" @change="categoryChanged()" class="focus:outline-none focus:shadow-outline text-lg px-4 py-2 mx-2 text-white bg-teal-500 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
                 <option v-for="({node}) in $page.allWordPressCategory.edges" :key="node.id" :value="node.slug">{{node.title}}  ({{node.count}})</option>
               </select>
             </div>
@@ -109,7 +109,9 @@ query Category($path: String, $page: Int) {
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading';
-
+if (!process.isClient) {
+  let window = {};
+}
 export default {
     components:{
       InfiniteLoading
@@ -147,6 +149,10 @@ export default {
                 }
             });
         },
+        async categoryChanged(){
+          console.log(`/tag/${this.categorySelected}`);
+          // router.push(`/tag/${this.categorySelected}`);
+        },
         async sortByDateF(){
             this.sortByDate=!this.sortByDate
             this.sort_list();
@@ -173,19 +179,14 @@ export default {
       this.loadedPosts.push(...this.$page.category.belongsTo.edges)
       this.sort_list();
     },
-    watch:{
-      categorySelected(val){
-        window.location.href =`/tag/${val}`
-      }
-    },
     computed:{
       categorySelected: {
         get: function () {
           return this.$route.params.slug;
         },
         set: function (val) {
-          window.location.href =`/tag/${val}`
-          console.log(val)
+          // this.$router.push(`/tag/${val}`);
+          window.location.href = `/tag/${val}`;
         }
       }
     }

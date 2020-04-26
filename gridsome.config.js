@@ -49,10 +49,10 @@ module.exports = {
         downloadRemoteImagesFromPosts: false, // default false
         downloadRemoteFeaturedImages: false, // default false
         downloadACFImages: false, // default false
-        // routes: {
-        //   post: '/blog/:slug',
-        //   post_tag: '/tag/:slug',
-        // },
+        routes: {
+          post: '/blog/:slug',
+          post_tag: '/tag/:slug',
+        },
       }
     },
     {
