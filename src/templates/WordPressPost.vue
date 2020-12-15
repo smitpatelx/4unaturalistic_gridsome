@@ -123,7 +123,13 @@ export default {
     metaInfo(){
         return{
             title: this.$page.contentfulPosts.postTitle,
-            description: this.$page.contentfulPosts.postDescription
+            meta: [
+                {
+                    key: 'description',
+                    name: 'description',
+                    content: this.$page.contentfulPosts.postDescription
+                }
+            ]
         }
     },
     filters:{
