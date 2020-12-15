@@ -85,6 +85,6 @@ module.exports = {
     ]
   },
   chainWebpack(config){
-    // config.mode('development')
+    config.mode('pproduction')
   }
 }
