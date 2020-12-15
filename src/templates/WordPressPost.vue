@@ -122,7 +122,8 @@ export default {
     },
     metaInfo(){
         return{
-            title: this.$page.contentfulPosts.postTitle
+            title: this.$page.contentfulPosts.postTitle,
+            description: this.$page.contentfulPosts.postDescription
         }
     },
     filters:{
