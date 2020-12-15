@@ -69,9 +69,9 @@ query {
 </static-query>
 
 <script>
-import { ZoomCenterTransition, SlideYDownTransition } from 'vue2-transitions'
-import ClickOutside from 'vue-click-outside'
-import AlgoliaSearch from './AlgoliaSearch'
+import { ZoomCenterTransition, SlideYDownTransition } from 'vue2-transitions';
+import ClickOutside from 'vue-click-outside';
+import AlgoliaSearch from './AlgoliaSearch';
 export default {
     components: {
         ZoomCenterTransition,
@@ -90,9 +90,7 @@ export default {
     methods:{
       closeServices(){
         this.services = false;
-        // console.log(this.$refs.search.focus())
       },
-      
     }
 }
 </script>

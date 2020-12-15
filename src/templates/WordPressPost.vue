@@ -146,6 +146,7 @@ export default {
         let links = document.querySelectorAll(".wp-content a");
         links.forEach(el => {
             el.target="_blank"
+            el.attributes.href
         });
         this.caclAvgReadTime();
 
