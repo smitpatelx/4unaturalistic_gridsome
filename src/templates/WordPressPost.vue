@@ -103,9 +103,10 @@ export default {
     },
     methods:{
         caclAvgReadTime(){
-            // let words = this.$page.contentfulPosts.content.split(' ').length;
-            //Formula- numberofwords/170;
-            // this.avgReadTime = Math.round(words/170);
+            
+            let words = this.richTextToHTML(this.$page.contentfulPosts.postContent).split(' ').length;
+            // Formula- numberofwords/170;
+            this.avgReadTime = Math.round(words/170);
         },
         richTextToHTML (content) {
             return documentToHtmlString(content, {
