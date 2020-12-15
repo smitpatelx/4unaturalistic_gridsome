@@ -125,7 +125,14 @@ export default {
   },
   metaInfo(){
     return{
-        title: this.$page.contentfulCategory.name,
+        title: "Category : "+this.$options.filters.simplifySlug(this.$page.contentfulCategory.name),
+        meta: [
+          {
+              key: 'description',
+              name: 'description',
+              content: "All the post associated with the tag - "+this.$options.filters.simplifySlug(this.$page.contentfulCategory.name)+" is archived here. Doctor of natural medicine."
+          }
+        ]
     }
   },
   filters:{

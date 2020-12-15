@@ -108,7 +108,7 @@ import InfiniteLoading from 'vue-infinite-loading';
 export default {
   metaInfo(){
     return{
-      title: "Blog",
+      title: "Dr. Dayan - Blog",
     }
   },
   data(){
