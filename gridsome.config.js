@@ -79,7 +79,7 @@ module.exports = {
     ],
     ContentfulCategory: [
       {
-        path:'/tag/:slug',
+        path:'/tag/:name',
         component: './src/templates/WordPressCategory.vue'
       }
     ]
