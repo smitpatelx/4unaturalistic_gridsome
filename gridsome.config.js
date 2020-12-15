@@ -39,8 +39,8 @@ module.exports = {
     {
       use: '@gridsome/source-contentful',
       options: {
-        space: 'cmiz5oo8pq96', // required
-        accessToken: 'UZR8G7KMUeczj-ln5tWcFWw1a9SHDFRPlUJX3WXf78g', // required
+        space: process.env.CONTENTFUL_SPACE, // required
+        accessToken: process.env.CONTENTFUL_TOKEN, // required
         host: 'cdn.contentful.com',
         environment: 'master',
         typeName: 'Contentful'
