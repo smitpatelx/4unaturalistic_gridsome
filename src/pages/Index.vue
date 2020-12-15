@@ -5,13 +5,13 @@
         <!-- Learn how to use images here: https://gridsome.org/docs/images -->
         <div class="w-full flex font-bold justify-start content-center my-4">
           <g-image alt="Example image" src="~/favicon.svg" class="w-10 lg:w-12" />
-          <h1 class="ml-2 text-teal-700 text-3xl lg:text-4xl">naturalistic</h1>
+          <h1 class="ml-2 text-gray-500 text-3xl lg:text-4xl">naturalistic</h1>
         </div>
         
-        <h2 class="font-bold text-teal-600 w-full text-left text-3xl lg:text-4xl xl:text-5xl">
+        <h2 class="font-bold text-teal-500 w-full text-left text-3xl lg:text-4xl xl:text-5xl">
           Inspired Through Healing
         </h2>
-        <p class="font-medium text-lg lg:text-xl xl:text-2xl text-gray-500 w-full text-left pt-6">
+        <p class="font-medium text-base lg:text-lg xl:text-lg text-gray-500 w-full text-left pt-6">
           It’s always a pleasure assisting families and individuals in quest to take control of their life.
         </p>
         

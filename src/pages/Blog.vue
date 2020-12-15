@@ -6,7 +6,7 @@
             <div class="flex flex-wrap flex-row items-center justify-start my-2">
               <select v-model="categorySelected" class="base-btn-primary">
                 <option value="" default>Select Category</option>
-                <option v-for="({node}) in $page.allContentfulCategory.edges" :key="node.name" :value="node.path">{{node.name}}</option>
+                <option v-for="({node}) in $page.allContentfulCategory.edges" :key="node.name" :value="node.path" v-html="$options.filters.simplifySlug(node.name)"></option>
               </select>
             </div>
             <div class="flex flex-wrap flex-row items-center justify-end my-2">
@@ -29,8 +29,11 @@
                     <div class="font-normal text-base text-gray-600 py-2" v-html="$options.filters.excerptF(node.postDescription, 15)">
                     </div>
                     <div class="pt-3 w-full flex flex-wrap justify-between items-center">
-                      <p class="font-normal text-base leading-tight text-gray-600">By - <span class="capitalize text-gray-600 font-medium">{{node.author.firstName}} {{node.author.lastName}}</span></p>
-                      <g-link class="text-base md:text-xl font-medium focus:outline-none text-teal-600 focus:text-teal-500 hover:text-teal-500 border-b border-transparent focus:border-teal-400 hover:border-teal-400" :to="node.path">Read More</g-link>
+                      <p class="font-normal text-base leading-tight text-gray-600"><span class="capitalize text-gray-600 font-medium">Dr. {{node.author.firstName}}</span></p>
+                      <g-link class="text-lg font-medium focus:outline-none text-teal-600 focus:text-teal-500 hover:text-teal-500 border-b border-transparent focus:border-teal-400 hover:border-teal-400 flex flex-wrap items-center justify-center" :to="node.path">
+                        Read More
+                        <svg class="w-5 h-5 inline-block ml-1 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.707 4.293a1 1 0 10-1.414 1.414L16.586 11H5a1 1 0 100 2h11.586l-5.293 5.293a1 1 0 001.414 1.414l7-7a1 1 0 000-1.414l-7-7z" clip-rule="evenodd"/></svg>
+                      </g-link>
                     </div>
                   </div>
                 </div>
@@ -126,10 +129,13 @@ export default {
       }
       return result;
     },
-    imageUrl(url){
-      let img_name = url.split('/')
-      img_name = img_name[img_name.length-1]
-      return '/wp-images/'+img_name.toString().replace(/\_+/g, '-')
+    simplifySlug(slug){
+      const name = slug.split('-');
+      const capitalize = name.map(i => {
+        return i.charAt(0).toUpperCase() + i.slice(1);
+      });
+      const newSlug = capitalize.join(' ');
+      return newSlug;
     }
   },
   created() {
@@ -161,9 +167,9 @@ export default {
     async sort_list(){
       this.loadedPosts.sort((a,b)=>{
         if(this.sortByDate){
-            return Number(new Date(a.node.date)) - Number(new Date(b.node.date));
+            return Number(new Date(a.node.createdAt)) - Number(new Date(b.node.createdAt));
         } else {
-            return Number(new Date(b.node.date)) - Number(new Date(a.node.date));
+            return Number(new Date(b.node.createdAt)) - Number(new Date(a.node.createdAt));
         }
       });
     },

@@ -3,7 +3,7 @@
         <div class="relative">
             <div class="px-6 md:px-16 lg:px-24 flex flex-wrap fonts-primary mx-auto container bg-white w-full">
                 <div>
-                    <a href="/blog" class="text-base font-medium text-gray-600 flex flex-wrap items-center justify-center content-center mt-4">
+                    <a href="/blog" class="text-base font-medium text-gray-600 flex flex-wrap items-center justify-center content-center mt-4 p-1 focus:ring-1 focus:ring-teal-200">
                         <span class="rounded-full bg-teal-100 p-2 leading-none mr-2 flex flex-wrap items-center justify-center">
                             <svg class="w-3 h-3 inline-block fill-current text-teal-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.707 1.707A1 1 0 007.293.293l-7 7a1 1 0 000 1.414l7 7a1 1 0 001.414-1.414L3.414 9H15a1 1 0 100-2H3.414l5.293-5.293z" clip-rule="evenodd"/></svg>
                         </span>
@@ -41,11 +41,11 @@
                 
                 <div class="w-full flex flex-wrap justify-between items-center border-t border-gray-400 mb-12">
                     <div class="w-full md:w-auto flex flex-wrap flex-row justify-start content-center items-center my-6">
-                        <a :href='`/tag/${data.slug}`' class="font-normal rounded-full border border-teal-500 py-1 px-3 text-base text-teal-500 hover:text-teal-600 cursor-pointer m-2" v-for="(data) in $page.contentfulPosts.categories" :key="data.id">
-                            {{data.title}}
+                        <a :href='`/tag/${data.id}`' class="font-normal rounded-full border border-teal-500 py-1 px-3 text-base text-teal-500 hover:text-teal-600 cursor-pointer m-2" v-for="(data, i) in $page.contentfulPosts.category" :key="i">
+                            {{data.name}}
                         </a>
                     </div>
-                    <p class="text-xl font-normal text-gray-600 px-2">{{$page.contentfulPosts.dateGmt|formatDate}}</p>
+                    <p class="text-xl font-normal text-gray-600 px-2">{{$page.contentfulPosts.createdAt|formatDate}}</p>
                 </div>
             </div>
         </div>
@@ -82,6 +82,10 @@ query Post($path: String!) {
         publishDate
         postContent
         postDescription
+        category{
+          id
+          name
+        }
         updatedAt
         createdAt
     }
