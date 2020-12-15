@@ -6,10 +6,9 @@ import InfiniteLoading from 'vue-infinite-loading'
 import VueSanitize from "vue-sanitize";
 import InstantSearch from 'vue-instantsearch';
 import VueDisqus from 'vue-disqus'
+
 // import VueInstantSearch, { createInstantSearch } from 'vue-instantsearch'
 // import algoliasearch from 'algoliasearch/lite';
-import '~/assets/tailwind.css';
-import '~/../static/fonts/stylesheet.css';
 
 // const searchClient = algoliasearch(
 //   'I6O2MBJ6PH',

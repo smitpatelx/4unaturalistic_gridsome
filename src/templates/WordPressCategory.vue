@@ -1,14 +1,14 @@
 <template>
     <Layout>
         <div class="py-6 flex flex-wrap mx-auto container">
-          <div class="flex flex-wrap w-full justify-center items-center">
+          <!-- <div class="flex flex-wrap w-full justify-center items-center">
             <span class="text-xl md:text-4xl font-normal text-teal-600 w-full text-center">
               <span class="text-gray-600 pr-3">#</span>
               {{$page.category.title}}
             </span>
-          </div>
+          </div> -->
           <!-- Filters @start -->
-          <div class="w-full flex flex-wrap-reverse md:flex-wrap justify-between items-center py-6">
+          <!-- <div class="w-full flex flex-wrap-reverse md:flex-wrap justify-between items-center py-6">
             <div class="flex flex-wrap flex-row items-center justify-start my-2 leading-tight">
               <select v-model="categorySelected" class="focus:outline-none focus:shadow-outline text-lg px-4 py-2 mx-2 text-white bg-teal-500 rounded shadow-lg hover:shadow-xl flex justify-center items-center">
                 <option v-for="({node}) in $page.allWordPressCategory.edges" :key="node.id" :value="node.slug">{{node.title}}  ({{node.count}})</option>
@@ -21,9 +21,9 @@
                 <span class="text-sm font-semibold pl-2" v-html="sortByDate ? '(Old ~ New)':'(New ~ Old)'">New</span>
               </button>
             </div>
-          </div>
+          </div> -->
           <!-- Filters @end -->
-          <div class="flex flex-wrap w-full">
+          <!-- <div class="flex flex-wrap w-full">
             <div class="w-full md:w-1/2 xl:w-1/3 p-4" v-for="{node} in loadedPosts" :key="node.id">
                 <div class="shadow-none hover:shadow-lg rounded-lg bg-white flex flex-wrap border border-gray-200 hover:border-transparent" style="transition: box-shadow 0.7s;">
                   <a :href="node.path" class="w-full flex flex-wrap" tabindex="-1">
@@ -40,72 +40,21 @@
                   </div>
                 </div>
             </div>
-          </div>
+          </div> -->
           <ClientOnly class="w-full flex flex-wrap">
-            <infinite-loading @infinite="infiniteHandler" spinner="spiral" class="w-full flex flex-wrap justify-center content-center items-center py-8 text-center">
+            <!-- <infinite-loading @infinite="infiniteHandler" spinner="spiral" class="w-full flex flex-wrap justify-center content-center items-center py-8 text-center">
               <p slot="no-more" class="w-full text-teal-600 font-light text-center text-xl">
                 You've scrolled through all the posts
               </p>
               <p slot="no-results" class="w-full text-teal-600 font-light text-center text-xl">
                 No more posts
               </p>
-            </infinite-loading>
+            </infinite-loading> -->
 			    </ClientOnly>
         </div>
     </Layout>
 </template>
 
-<page-query>
-query Category($path: String, $page: Int) {
-    category: wordPressCategory(path: $path) {
-    title
-    belongsTo(page: $page, perPage: 9) @paginate {
-      pageInfo {
-        totalPages
-        currentPage
-      }
-      edges {
-        node {
-          ... on WordPressPost {
-            date,
-            id,
-            title,
-            path,
-            excerpt,
-            categories{
-              id,
-            },
-            author {
-              name,
-            },
-            featuredMedia{
-              altText
-              mediaDetails{
-                sizes{
-                  medium{
-                    sourceUrl
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  allWordPressCategory{
-    totalCount
-    edges{
-      node{
-        id
-        title
-        count
-        slug
-      }
-    }
-  },
-}
-</page-query>
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading';
@@ -123,7 +72,7 @@ export default {
     },
     metaInfo(){
         return{
-            title: this.$page.category.title,
+            // title: this.$page.category.title,
         }
     },
     filters:{
