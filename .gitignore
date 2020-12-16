@@ -8,3 +8,4 @@ node_modules
 ./wp-images
 dist
 yarn.lock
+package-lock.json
