@@ -3,7 +3,7 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 // const InfiniteLoading = import('vue-infinite-loading')
-const VueSanitize = () => import("vue-sanitize")
+import VueSanitize from "vue-sanitize"
 // const InstantSearch = import('vue-instantsearch')
 // const VueDisqus = import('vue-disqus')
 

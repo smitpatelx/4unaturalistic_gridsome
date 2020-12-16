@@ -1,7 +1,7 @@
 // This is where project configuration and plugin options are located. 
 // Learn more: https://gridsome.org/docs/config
 const webpack = require('webpack')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 // const collections = [
 //   {
 //     query: `{

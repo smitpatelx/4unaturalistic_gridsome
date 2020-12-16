@@ -23,7 +23,9 @@
     "vue-infinite-loading": "^2.4.5",
     "vue-instantsearch": "^2.7.1",
     "vue-sanitize": "^0.2.0",
-    "vue2-transitions": "^0.3.0"
+    "vue2-transitions": "^0.3.0",
+    "webpack": "^5.10.3",
+    "webpack-merge": "^5.7.0"
   },
   "devDependencies": {
     "gridsome-plugin-tailwindcss": "^2.2.48",
