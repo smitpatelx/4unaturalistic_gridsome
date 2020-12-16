@@ -87,6 +87,11 @@ module.exports = {
             changefreq: 'daily',
             priority: 1,
             lastmod: '2020-11-01',
+          },
+          '/tag/**': {
+            changefreq: 'daily',
+            priority: 1,
+            lastmod: '2020-11-01',
           }
         }
       }
