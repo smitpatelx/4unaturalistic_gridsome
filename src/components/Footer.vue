@@ -7,8 +7,6 @@
             <div class="flex flex-wrap flex-col md:flex-row justify-end items-end">
                 <div class="flex flex-wrap text-base md:text-xl font-medium px-0 lg:px-4 items-center justify-center space-x-3 md:space-x-4">
                     <g-link to="/" class="cursor-pointer text-gray-500 font-medium hover:text-teal-500 transition-all duration-300 focus:underline focus:outline-none">Home</g-link>
-                    <g-link to="/faqs" class="cursor-pointer text-gray-500 font-medium hover:text-teal-500 transition-all duration-300 focus:underline focus:outline-none">Faqs</g-link>
-                    <g-link to="/about" class="cursor-pointer text-gray-500 font-medium hover:text-teal-500 transition-all duration-300 focus:underline focus:outline-none">About</g-link>
                     <g-link to="/blog" class="cursor-pointer text-gray-500 font-medium hover:text-teal-500 transition-all duration-300 focus:underline focus:outline-none">Blog</g-link>
                 </div>
                 <div class="flex flex-wrap text-base md:text-xl px-4 justify-between ml-2 md:ml-3 items-center mt-2 md:mt-0 space-x-2 md:space-x-3">
