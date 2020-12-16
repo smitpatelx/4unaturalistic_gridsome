@@ -33,7 +33,7 @@ const collections = [
 
 module.exports = {
   siteName: '4unaturalistic',
-  siteUrl: '4unaturalistic.com',
+  siteUrl: 'https://4unaturalistic.com',
   plugins: [
     {
       use: '@gridsome/source-contentful',
