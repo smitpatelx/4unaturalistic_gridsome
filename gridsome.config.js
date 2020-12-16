@@ -89,7 +89,7 @@ module.exports = {
   configureWebpack(config) {
     return merge({ 
       plugins:[
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new webpack.IgnorePlugin({"/^\.\/locale$/", "/moment$/"}),
       ]
     }, config)
   },
