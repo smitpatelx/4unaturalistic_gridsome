@@ -2,13 +2,13 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue'
-import InfiniteLoading from 'vue-infinite-loading'
-import VueSanitize from "vue-sanitize";
-import InstantSearch from 'vue-instantsearch';
-import VueDisqus from 'vue-disqus'
+// const InfiniteLoading = import('vue-infinite-loading')
+const VueSanitize = () => import("vue-sanitize")
+// const InstantSearch = import('vue-instantsearch')
+// const VueDisqus = import('vue-disqus')
 
-// import VueInstantSearch, { createInstantSearch } from 'vue-instantsearch'
-// import algoliasearch from 'algoliasearch/lite';
+// const {VueInstantSearch,createInstantSearch} = import('vue-instantsearch')
+// const algoliasearch = import('algoliasearch/lite')
 
 // const searchClient = algoliasearch(
 //   'I6O2MBJ6PH',
@@ -54,6 +54,6 @@ import VueDisqus from 'vue-disqus'
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
-  Vue.use([InfiniteLoading, InstantSearch, VueDisqus]);
+  // Vue.use([InfiniteLoading, InstantSearch, VueDisqus]);
   Vue.use(VueSanitize);
 }

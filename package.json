@@ -29,5 +29,11 @@
     "gridsome-plugin-tailwindcss": "^2.2.48",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2"
-  }
+  },
+  "browserslist": [
+    "last 3 Safari version",
+    "last 3 Firefox version",
+    "last 3 ChromeAndroid version",
+    "last 3 Chrome version"
+  ]
 }

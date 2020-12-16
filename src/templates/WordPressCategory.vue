@@ -111,7 +111,7 @@ query Post($path: String!) {
 </page-query>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading';
+import InfiniteLoading from 'vue-infinite-loading'
 if (!process.isClient) {
   let window = {};
 }

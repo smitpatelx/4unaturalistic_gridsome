@@ -28,7 +28,7 @@
                 <h1 v-html="$page.contentfulPosts.title" class="text-4xl font-bold text-gray-800 py-4 text-center w-full mt-6"></h1>
                 <div class="w-full flex flex-wrap justify-center items-center font-normal text-base text-gray-700">
                     <span class="mr-2">
-                        Posted <span class="font-semibold">{{$page.contentfulPosts.createdAt | formatDate}}</span> by</span>
+                        Posted <span class="font-semibold">{{$page.contentfulPosts.createdAt | formatDate}}</span></span>
                     <span class="font-semibold"> - {{avgReadTime}} min read</span>
                 </div>
                 <div class="w-full flex flex-wrap justify-center items-center font-normal text-base text-gray-700 self-auto my-4">
@@ -93,10 +93,10 @@ query Post($path: String!) {
 </page-query>
 
 <script>
-import moment from 'moment'
-import VueDisqus from 'vue-disqus/dist/vue-disqus.vue';
-import { BLOCKS } from '@contentful/rich-text-types'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+const moment = require('moment')
+import VueDisqus from 'vue-disqus/dist/vue-disqus.vue'
+const { BLOCKS } = require('@contentful/rich-text-types')
+const { documentToHtmlString } = require('@contentful/rich-text-html-renderer')
 
 export default {
     data(){

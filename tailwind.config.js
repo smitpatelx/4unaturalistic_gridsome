@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors.js')
 
 module.exports = {
   purge: [
@@ -497,6 +497,7 @@ module.exports = {
     },
     minWidth: {
       0: '0px',
+      "26": "26rem",
       full: '100%',
       min: 'min-content',
       max: 'max-content',

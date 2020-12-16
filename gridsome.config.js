@@ -1,6 +1,7 @@
 // This is where project configuration and plugin options are located. 
 // Learn more: https://gridsome.org/docs/config
-
+const webpack = require('webpack')
+const merge = require('webpack-merge')
 // const collections = [
 //   {
 //     query: `{
@@ -59,6 +60,7 @@ module.exports = {
       }
       */
     },
+    
     // {
     //   use: `gridsome-plugin-algolia`,
     //   options: {
@@ -83,6 +85,13 @@ module.exports = {
         component: './src/templates/WordPressCategory.vue'
       }
     ]
+  },
+  configureWebpack(config) {
+    return merge({ 
+      plugins:[
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      ]
+    }, config)
   },
   chainWebpack(config){
     const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'production';

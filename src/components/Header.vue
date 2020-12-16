@@ -9,7 +9,7 @@
           </g-link>
           <div id="nav" class="flex flex-wrap mr-0 xl:mr-32 md:ml-4 text-lg font-normal">
             <g-link title="home" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/" exact>Home</g-link>
-            <div class="flex flex-wrap flex-col" v-click-outside="closeServices" @blur="closeServices">
+            <!-- <div class="flex flex-wrap flex-col" v-click-outside="closeServices" @blur="closeServices">
               <button @click="services=!services" type="button" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600">
                 Services
                 <svg class="w-5 h-5 fill-current inline-block" viewBox="0 0 24 24"><path d="M5.293 8.293a1 1 0 011.414 0L12 13.586l5.293-5.293a1 1 0 111.414 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414z"/></svg>
@@ -24,8 +24,8 @@
                   </div>
                 </slide-y-down-transition>
               </div>
-            </div>
-            <g-link title="about" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/about/" exact>About</g-link>
+            </div> -->
+            <!-- <g-link title="about" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/about/" exact>About</g-link> -->
             <g-link title="blog" class="focus:outline-none focus:text-teal-700 mr-4 ml-2 py-5 text-gray-700 hover:text-teal-600" to="/blog/">Blog</g-link>
           </div>
         <!-- </div> -->
@@ -33,7 +33,7 @@
           <g-link to="/" class="mr-4 lg:m-0 lg:hidden inline-block text-gray-800 no-underline cursor-pointer justify-center content-center items-center">
             <g-image src="/main-logo.svg" alt="4unaturalistic-logo" class="h-12 w-12 inline-block"/>
           </g-link>
-          <div class="flex-1 block" style="min-width:10rem;">
+          <div class="flex-1 block w-full md:min-w-26">
             <AlgoliaSearch></AlgoliaSearch>
           </div>
           <button :title="darkmode ? 'Night Light' : 'Day Light'" @click="darkmode=!darkmode" type="button" target="_blank" class="cursor-pointer h-full mr-0 md:mr-6 xl:mr-12 focus:outline-none text-gray-600 hover:text-teal-500 focus:text-teal-500 flex justify-center items-center">
@@ -69,9 +69,9 @@ query {
 </static-query>
 
 <script>
-import { ZoomCenterTransition, SlideYDownTransition } from 'vue2-transitions';
-import ClickOutside from 'vue-click-outside';
-import AlgoliaSearch from './AlgoliaSearch';
+const { ZoomCenterTransition, SlideYDownTransition } = require('vue2-transitions')
+const ClickOutside = () => import('vue-click-outside')
+const AlgoliaSearch = () => import('./AlgoliaSearch')
 export default {
     components: {
         ZoomCenterTransition,

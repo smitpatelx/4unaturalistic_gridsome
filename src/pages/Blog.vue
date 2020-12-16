@@ -103,7 +103,7 @@ query Posts {
 </page-query>
 
 <script>
-import InfiniteLoading from 'vue-infinite-loading';
+import InfiniteLoading from 'vue-infinite-loading'
 
 export default {
   metaInfo(){
@@ -180,7 +180,7 @@ export default {
     }
   },
   components:{
-    InfiniteLoading
+    InfiniteLoading,
   }
 }
 </script>
