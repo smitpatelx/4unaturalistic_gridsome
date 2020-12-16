@@ -31,6 +31,7 @@
   "devDependencies": {
     "gridsome-plugin-tailwindcss": "^4.1.1",
     "node-sass": "^4.14.1",
+    "postcss-import": "^14.0.0",
     "sass-loader": "^8.0.2"
   },
   "browserslist": [
