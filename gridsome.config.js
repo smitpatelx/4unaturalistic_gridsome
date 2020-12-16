@@ -1,39 +1,39 @@
 // This is where project configuration and plugin options are located. 
 // Learn more: https://gridsome.org/docs/config
-// const collections = [
-//   {
-//     query: `{
-//       allWordPressPost {
-//         edges {
-//           node {
-//             date
-//             id
-//             title
-//             path
-//             excerpt
-//             content
-//             slug
-//           }
-//         }
-//       }
-//     }`,
-//     transformer: ({ data }) => data.allWordPressPost.edges.map(({ node }) => node),
-//     indexName: process.env.ALGOLIA_INDEX_NAME, // Algolia index name
-//     itemFormatter: (item) => {
-//       return {
-//         objectID: item.id,
-//         title: item.title,
-//         slug: item.slug,
-//         excerpt: item.excerpt,
-//         modified: String(item.date)
-//       }
-//     }, // optional
-//     matchFields: ['content', 'title'], // Array<String> required with PartialUpdates
-//   },
-// ];
+const collections = [
+  {
+    query: `{
+      allContentfulPosts {
+        edges {
+          node {
+            id
+            postSlug
+            path
+            postTitle
+            publishDate
+            postDescription
+          }
+        }
+      }
+    }`,
+    transformer: ({ data }) => data.allContentfulPosts.edges.map(({ node }) => node),
+    indexName: process.env.ALGOLIA_INDEX_NAME, // Algolia index name
+    itemFormatter: (item) => {
+      return {
+        objectID: item.id,
+        title: item.postTitle,
+        slug: item.postSlug,
+        excerpt: item.postDescription,
+        modified: String(item.publishDate),
+      }
+    }, // optional
+    matchFields: ['excerpt', 'title'], // Array<String> required with PartialUpdates
+  },
+];
 
 module.exports = {
   siteName: '4unaturalistic',
+  siteUrl: '4unaturalistic.com',
   plugins: [
     {
       use: '@gridsome/source-contentful',
@@ -58,17 +58,39 @@ module.exports = {
       }
       */
     },
-    
-    // {
-    //   use: `gridsome-plugin-algolia`,
-    //   options: {
-    //     appId: process.env.ALGOLIA_APP_ID,
-    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
-    //     collections,
-    //     chunkSize: 10000, // default: 1000
-    //     enablePartialUpdates: true, // default: false
-    //   },
-    // },
+    {
+      use: 'gridsome-plugin-algolia',
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        collections,
+        chunkSize: 10000, // default: 1000
+        enablePartialUpdates: true, // default: false
+      },
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        exclude: [],
+        config: {
+          '/blog/**': {
+            changefreq: 'daily',
+            priority: 1,
+            lastmod: '2020-11-01',
+          },
+          '/': {
+            changefreq: 'daily',
+            priority: 1,
+            lastmod: '2020-11-01',
+          },
+          '/blog': {
+            changefreq: 'daily',
+            priority: 1,
+            lastmod: '2020-11-01',
+          }
+        }
+      }
+    }
   ],
   templates: {
     ContentfulPosts: [
