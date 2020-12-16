@@ -27,6 +27,7 @@
     "vue-instantsearch": "^2.7.1",
     "vue-sanitize": "^0.2.0",
     "vue2-transitions": "^0.3.0",
+    "webpack": "4.44.2",
     "webpack-merge": "^5.7.0"
   },
   "devDependencies": {
