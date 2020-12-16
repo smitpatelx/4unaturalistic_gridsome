@@ -54,8 +54,8 @@
 </template>
 
 <page-query>
-query Posts {
-  allContentfulPosts (perPage: 10) {
+query Posts($page: Int!) {
+  allContentfulPosts (perPage: 10, page: $page) @paginate {
     pageInfo{
       totalPages,
       totalItems,
