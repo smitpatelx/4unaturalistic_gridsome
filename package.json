@@ -36,8 +36,7 @@
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.1.0",
     "sass-loader": "^8.0.2",
-    "sugarss": "^3.0.3",
-    "webpack": "^5.10.3"
+    "sugarss": "^3.0.3"
   },
   "browserslist": [
     "last 3 Safari version",
