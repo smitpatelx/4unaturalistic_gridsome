@@ -87,7 +87,7 @@ module.exports = {
   // configureWebpack(config) {
   // },
   chainWebpack(config){
-    const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'production';
+    const environment = process.env.NODE_ENV;
     config.mode(environment)
   }
 }
