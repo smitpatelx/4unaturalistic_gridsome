@@ -23,11 +23,11 @@
     "vue-instantsearch": "^2.7.1",
     "vue-sanitize": "^0.2.0",
     "vue2-transitions": "^0.3.0",
-    "webpack": "^4.29.3"
-  },
-  "devDependencies": {
+    "webpack": "^4.29.3",
     "gridsome-plugin-tailwindcss": "^2.2.48",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2"
+  },
+  "devDependencies": {
   }
 }
