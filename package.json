@@ -20,6 +20,7 @@
     "gridsome-plugin-tailwindcss": "^4.1.1",
     "postcss": "^7.0.35",
     "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^10.1.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue-click-outside": "^1.0.7",
     "vue-disqus": "^3.0.5",
@@ -35,7 +36,6 @@
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.1.0",
-    "sass-loader": "^8.0.2",
     "sugarss": "^3.0.3"
   },
   "browserslist": [
