@@ -28,7 +28,8 @@
     "vue-infinite-loading": "^2.4.5",
     "vue-instantsearch": "^2.7.1",
     "vue-sanitize": "^0.2.0",
-    "vue2-transitions": "^0.3.0"
+    "vue2-transitions": "^0.3.0",
+    "webpack": "^5.10.3"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
