@@ -1,7 +1,5 @@
 // This is where project configuration and plugin options are located. 
 // Learn more: https://gridsome.org/docs/config
-const webpack = require('webpack')
-const { merge } = require('webpack-merge')
 // const collections = [
 //   {
 //     query: `{
@@ -87,14 +85,7 @@ module.exports = {
     ]
   },
   configureWebpack(config) {
-    return merge({ 
-      plugins:[
-        new webpack.IgnorePlugin({
-          resourceRegExp: /^\.\/locale$/,
-          contextRegExp: /moment$/
-        }),
-      ]
-    }, config)
+
   },
   chainWebpack(config){
     const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'production';
